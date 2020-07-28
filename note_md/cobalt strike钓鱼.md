@@ -33,7 +33,7 @@
 编写一份被攻击者的列表，格式为：  
 someone@xx.com[TAB]name   
 someone2@xx.com[TAB]name2   
-![img 图片](./imgs/userlist.png)
+![img 图片](./imgs/userlist.png)  
 然后在[https://cock.li/](https://cock.li/)上注册一个邮箱来进行邮件钓鱼。  
 最后填写spear phish内选项，发送邮件
 ![img 图片](./imgs/sendmail.png)

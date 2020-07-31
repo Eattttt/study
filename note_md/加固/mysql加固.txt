@@ -1,87 +1,87 @@
-mysql¼Ó¹Ì±Ê¼Ç
-¡ª¡ªÐÞ¸ÄDBAµÇÂ¼ÃÜÂë
-ÔÚshell»·¾³ÏÂÖ´ÐÐ
+mysqlåŠ å›ºç¬”è®°
+â€”â€”ä¿®æ”¹DBAç™»å½•å¯†ç 
+åœ¨shellçŽ¯å¢ƒä¸‹æ‰§è¡Œ
 mysqladmin -u root password
-Á¬ÐøÊäÈëÁ½´ÎÐÂÃÜÂë
-·ÇÊ×´ÎÐÞ¸Ä
-mysqladmin -u root password -pÔ­ÃÜÂë
-Á¬ÐøÊäÈëÁ½´ÎÐÂÃÜÂë
-ÔÚmysqlÏÂÖ´ÐÐt-sqlÓï¾ä
-update user set password=password(¡®ÃÜÂë') where user='root'; 
+è¿žç»­è¾“å…¥ä¸¤æ¬¡æ–°å¯†ç 
+éžé¦–æ¬¡ä¿®æ”¹
+mysqladmin -u root password -påŽŸå¯†ç 
+è¿žç»­è¾“å…¥ä¸¤æ¬¡æ–°å¯†ç 
+åœ¨mysqlä¸‹æ‰§è¡Œt-sqlè¯­å¥
+update user set password=password(â€˜å¯†ç ') where user='root'; 
 flush privileges; 
 
 
 
-¡ª¡ªÉ¾³ýÄ¬ÈÏÊý¾Ý¿âºÍÓÃ»§
-É¾³ý²âÊÔ¿â
+â€”â€”åˆ é™¤é»˜è®¤æ•°æ®åº“å’Œç”¨æˆ·
+åˆ é™¤æµ‹è¯•åº“
 show databases;
 drop?database?test; 
-É¾³ý·ÇrootÓÃ»§
+åˆ é™¤éžrootç”¨æˆ·
 use mysql; 
  delete from user where not (user='root') ; 
-É¾³ýÃÜÂëÎª¿ÕµÄrootÓÃ»§
-delete from user where user='root' and password=¡¯¡¯;
+åˆ é™¤å¯†ç ä¸ºç©ºçš„rootç”¨æˆ·
+delete from user where user='root' and password=â€™â€™;
 flush privileges; 
 
 
-¡ª¡ª±ä¸üDBAÓÃ»§Ãû
+â€”â€”å˜æ›´DBAç”¨æˆ·å
 use mysql;
 update user set user="nicai " where user="root"; 
 flush privileges; 
 
 
-¡ª¡ªÔÚÕË»§¹ÜÀíÊ±Ê¹ÓÃ¼ÓÃÜËã·¨
+â€”â€”åœ¨è´¦æˆ·ç®¡ç†æ—¶ä½¿ç”¨åŠ å¯†ç®—æ³•
 use mysql;
 insert into users values (1,password(123.com),'test'); 
 
-¡ª¡ª¸ü¸ÄmysqlÆô¶¯ÓÃ»§
-ÐÞ¸Ämy.cnfÎÄ¼þ
+â€”â€”æ›´æ”¹mysqlå¯åŠ¨ç”¨æˆ·
+ä¿®æ”¹my.cnfæ–‡ä»¶
 vim /etc/my.cnf
-¼ÓÈëÈçÏÂÄÚÈÝ
+åŠ å…¥å¦‚ä¸‹å†…å®¹
 [mysqld]
 user=mysql
 
 
-¡ª¡ªÏÞÖÆÔ¶³ÌÁ¬½ÓÊý
-ÐÞ¸Ämy.cnfÎÄ¼þ£¬È¥µô×¢ÊÍ·ûºÅ
+â€”â€”é™åˆ¶è¿œç¨‹è¿žæŽ¥æ•°
+ä¿®æ”¹my.cnfæ–‡ä»¶ï¼ŒåŽ»æŽ‰æ³¨é‡Šç¬¦å·
 vi  /etc/my.cnf
-¼ÓÈëÈçÏÂÄÚÈÝ
+åŠ å…¥å¦‚ä¸‹å†…å®¹
 [mysqld]
 max_connections = 5
 max_user_connections=2
-»òÕßÏÞÖÆÄ³¸öÓÃ»§£¬ÔÚmysqlÖÐÖ´ÐÐ
+æˆ–è€…é™åˆ¶æŸä¸ªç”¨æˆ·ï¼Œåœ¨mysqlä¸­æ‰§è¡Œ
 GRANT test  ON *.* TO testdb@localhost MAX_USER_CONNECTIONS 2;
 
 
-¡ª¡ª¹Ø±ÕÔ¶³Ì¹ÜÀíÊý¾Ý¿â
-ÐÞ¸Ämy.cnfÎÄ¼þ£¬È¥µô×¢ÊÍ·ûºÅ
+â€”â€”å…³é—­è¿œç¨‹ç®¡ç†æ•°æ®åº“
+ä¿®æ”¹my.cnfæ–‡ä»¶ï¼ŒåŽ»æŽ‰æ³¨é‡Šç¬¦å·
 vi  /etc/my.cnf
-ÐÞ¸ÄÈçÏÂÄÚÈÝ
+ä¿®æ”¹å¦‚ä¸‹å†…å®¹
 #skip-networking
-           ¡ý
+           â†“
 skip-networking
 
 
-¡ª¡ªÇåÀímysqlÃüÁîÀúÊ·
-×¢ÒâÇåÀí¼ÒÄ¿Â¼ÖÐµÄ.mysql_history
+â€”â€”æ¸…ç†mysqlå‘½ä»¤åŽ†å²
+æ³¨æ„æ¸…ç†å®¶ç›®å½•ä¸­çš„.mysql_history
 ln -s /dev/null  /root/.mysql_history
-½ûÖ¹Ê¹ÓÃÃ÷ÎÄÄ£Ê½µÇÂ½mysql
+ç¦æ­¢ä½¿ç”¨æ˜Žæ–‡æ¨¡å¼ç™»é™†mysql
 mysql  -u root -p123.com
-Ó¦Ê¹ÓÃÒþ²ØÃÜÂë·½Ê½
+åº”ä½¿ç”¨éšè—å¯†ç æ–¹å¼
 mysql  -u root -p
 
 
 
-¡ª¡ª½ûÖ¹MySql¶ÁÈ¡±¾µØÎÄ¼þ
-ÐÞ¸Ämy.cnfÎÄ¼þ£¬¼ÓÈë¹Ø±ÕÐÅÏ¢
+â€”â€”ç¦æ­¢MySqlè¯»å–æœ¬åœ°æ–‡ä»¶
+ä¿®æ”¹my.cnfæ–‡ä»¶ï¼ŒåŠ å…¥å…³é—­ä¿¡æ¯
 vi  /etc/my.cnf
-¼ÓÈëÈçÏÂÄÚÈÝ
+åŠ å…¥å¦‚ä¸‹å†…å®¹
 [mysqld]
 local_infile = 0
-»òÕßÌí¼ÓÆô¶¯Ñ¡Ïî
-ÓÃ½Å±¾¿ªÆômysql
+æˆ–è€…æ·»åŠ å¯åŠ¨é€‰é¡¹
+ç”¨è„šæœ¬å¼€å¯mysql
 mysqld_safe --local_infile=0 --user=mysql
-*********µ¼ÈëµÄÏà¹Ø²âÊÔÃüÁî********
+*********å¯¼å…¥çš„ç›¸å…³æµ‹è¯•å‘½ä»¤********
 vi sqlfile.txt
 1,sszng,111
 2,sman,222
@@ -91,18 +91,18 @@ mysql> select * from users;
 
 
 
-¡ª¡ª½ûÖ¹½«±íµ¼³öµ½ÎÄ¼þ
-ÔÚmysqlÖÐÐÞ¸ÄÓÃ»§µÄÎÄ¼þÈ¨ÏÞ
-update user set File_priv='N' where user=¡®ÓÃ»§Ãû'; 
-¼ì²éÅäÖÃÎÄ¼þÊÇ·ñ´æÔÚ²»ºÏÀíÐÅÏ¢
+â€”â€”ç¦æ­¢å°†è¡¨å¯¼å‡ºåˆ°æ–‡ä»¶
+åœ¨mysqlä¸­ä¿®æ”¹ç”¨æˆ·çš„æ–‡ä»¶æƒé™
+update user set File_priv='N' where user=â€˜ç”¨æˆ·å'; 
+æ£€æŸ¥é…ç½®æ–‡ä»¶æ˜¯å¦å­˜åœ¨ä¸åˆç†ä¿¡æ¯
 grep  secure_file_priv  /etc/my.cnf
-secure_file_priv= xxxÂ·¾¶
-*********µ¼³öµÄ²âÊÔÃüÁî************
+secure_file_priv= xxxè·¯å¾„
+*********å¯¼å‡ºçš„æµ‹è¯•å‘½ä»¤************
 select * from mysql.user into outfile 'test1.txt' fields terminated by ',';
 
 
-¡ª¡ªÈÕ³£±¸·ÝÊý¾Ý¿â
-mysqldump --user=root -p123.com --all-databases --flush-privileges --lock-all-tables  --master-data=1 --flush-logs --triggers --routines --events  --hex-blob > ±¸·ÝÂ·¾¶/ÎÄ¼þÃûÊ±¼ä´Á.sql
+â€”â€”æ—¥å¸¸å¤‡ä»½æ•°æ®åº“
+mysqldump --user=root -p123.com --all-databases --flush-privileges --lock-all-tables  --master-data=1 --flush-logs --triggers --routines --events  --hex-blob > å¤‡ä»½è·¯å¾„/æ–‡ä»¶åæ—¶é—´æˆ³.sql
 
 
 

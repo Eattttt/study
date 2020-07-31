@@ -1,14 +1,14 @@
-¡ª¡ª±ÜÃâ±»Õë¶Ô°æ±¾Ö±½ÓÊ¹ÓÃÂ©¶´
-ĞŞ¸Änginx.confÎÄ¼ş
-ÔÚhttpÄ£¿éÖĞÌí¼ÓÈçÏÂĞÅÏ¢
-server_tokens  off£»
+â€”â€”é¿å…è¢«é’ˆå¯¹ç‰ˆæœ¬ç›´æ¥ä½¿ç”¨æ¼æ´
+ä¿®æ”¹nginx.confæ–‡ä»¶
+åœ¨httpæ¨¡å—ä¸­æ·»åŠ å¦‚ä¸‹ä¿¡æ¯
+server_tokens  offï¼›
 
 
 
 
-¡ª¡ªÄ³Ğ©Ä¿Â¼ÎªÔËÎ¬Ò³Ãæ£¬²»Òª¹«¿ª·ÃÎÊ
-±à¼­nginx.conf
-ÔÚserver±êÇ©ÄÚÌí¼ÓÈçÏÂÄÚÈİ
+â€”â€”æŸäº›ç›®å½•ä¸ºè¿ç»´é¡µé¢ï¼Œä¸è¦å…¬å¼€è®¿é—®
+ç¼–è¾‘nginx.conf
+åœ¨serveræ ‡ç­¾å†…æ·»åŠ å¦‚ä¸‹å†…å®¹
 location ~ /attachments/.*\.(php|php5)?$ { 
 deny all; 
 }
@@ -18,9 +18,9 @@ deny all;
 
 
 
-¡ª¡ªÃô¸ĞÄ¿Â¼Ê¹ÓÃ°×Ãûµ¥·ÃÎÊ
-ĞŞ¸Änginx.confÎÄ¼ş
-ÔÚserverÖĞÌí¼Ó
+â€”â€”æ•æ„Ÿç›®å½•ä½¿ç”¨ç™½åå•è®¿é—®
+ä¿®æ”¹nginx.confæ–‡ä»¶
+åœ¨serverä¸­æ·»åŠ 
 location /upload {
 allow 192.168.1.0/24; 
 allow 10.1.1.1/32; 
@@ -30,15 +30,15 @@ deny all;
 
 
 
-¡ª¡ª·ÀÖ¹Í¨¹ıä¯ÀÀÆ÷Ö±½Ó²é¿´Ä¿Â¼ÄÚÈİ
-±à¼­nginx.confÎÄ¼ş
-ÔÚhttpÄ£¿éÏÂÌí¼ÓÒ»ĞĞÄÚÈİ
+â€”â€”é˜²æ­¢é€šè¿‡æµè§ˆå™¨ç›´æ¥æŸ¥çœ‹ç›®å½•å†…å®¹
+ç¼–è¾‘nginx.confæ–‡ä»¶
+åœ¨httpæ¨¡å—ä¸‹æ·»åŠ ä¸€è¡Œå†…å®¹
 autoindex off;
 
 
-¡ª¡ªÖÆ×÷ÖØ¶¨Ïò£¬·ÀÖ¹Ä¬ÈÏÒ³Ãæ´æÔÚ°²È«Òş»¼
-±à¼­nginx.conf
-ÔÚserverÄ£¿éÏÂ¼ÓÈë
+â€”â€”åˆ¶ä½œé‡å®šå‘ï¼Œé˜²æ­¢é»˜è®¤é¡µé¢å­˜åœ¨å®‰å…¨éšæ‚£
+ç¼–è¾‘nginx.conf
+åœ¨serveræ¨¡å—ä¸‹åŠ å…¥
 error_page   404  /404.html;
         location = /404.html {
         root   /usr/local/nginx/html;
@@ -46,62 +46,62 @@ error_page   404  /404.html;
 
 
 
-¡ª¡ªĞŞ¸ÄÈÕ¼Ç¸ñÊ½£¬±ãÓÚÉó¼Æ
-±à¼­nginx.confÎÄ¼ş
-ÔÚhttpÄ£¿éÄÚÆôÓÃ±êÇ©mainµÄlog_format¸ñÊ½
-log_format main '$remote_addr - $remote_user [$time_local] "$request" ' '$status $body_bytes_sent "$http_referer" ' '"$http_user_agent" "$http_x_forwarded_for¡±¡¯;
-ÔÚserver±êÇ©ÄÚµ÷ÓÃ
+â€”â€”ä¿®æ”¹æ—¥è®°æ ¼å¼ï¼Œä¾¿äºå®¡è®¡
+ç¼–è¾‘nginx.confæ–‡ä»¶
+åœ¨httpæ¨¡å—å†…å¯ç”¨æ ‡ç­¾mainçš„log_formatæ ¼å¼
+log_format main '$remote_addr - $remote_user [$time_local] "$request" ' '$status $body_bytes_sent "$http_referer" ' '"$http_user_agent" "$http_x_forwarded_forâ€â€™;
+åœ¨serveræ ‡ç­¾å†…è°ƒç”¨
 access_log logs/host.access.log main
 
 
 
 
-¡ª¡ªÖ»ÔÊĞí³£ÓÃµÄgetºÍpost·½·¨£¬¼õÉÙÂ©¶´
-±à¼­nginx.conf
-ÔÚserverÄ£¿éÖĞ¼ÓÈëÅĞ¶ÏĞÅÏ¢
-if ($request_method !~* GET|POST) { return 403;
+â€”â€”åªå…è®¸å¸¸ç”¨çš„getå’Œpostæ–¹æ³•ï¼Œå‡å°‘æ¼æ´
+ç¼–è¾‘nginx.conf
+åœ¨serveræ¨¡å—ä¸­åŠ å…¥åˆ¤æ–­ä¿¡æ¯
+if ($request_method !~* GET|POST) { return 403;
 }
 
 
 
-¡ª¡ª¼õ»º±»ddos¹¥»÷Ê±×ÊÔ´ÏûºÄËÙ¶È
-±à¼­nginx.confÎÄ¼ş
-ÔÚhttpÄ£¿éÖĞÉùÃ÷
+â€”â€”å‡ç¼“è¢«ddosæ”»å‡»æ—¶èµ„æºæ¶ˆè€—é€Ÿåº¦
+ç¼–è¾‘nginx.confæ–‡ä»¶
+åœ¨httpæ¨¡å—ä¸­å£°æ˜
 limit_req_zone $binary_remote_addr zone=allips:10m rate=20r/s;
-Ìí¼ÓÔÚserverµÄlocationÖĞ
+æ·»åŠ åœ¨serverçš„locationä¸­
 location / { 
 limit_req zone=allips burst=5 nodelay;
 limit_rate 20k; 
 }
-¶¨ÒåÒ»¸öÃûÎªallipsµÄlimit_req_zoneÓÃÀ´´æ´¢session£¬´óĞ¡ÊÇ10MÄÚ´æ£¬
-ÒÔ$binary_remote_addr Îªkey,ÏŞÖÆÆ½¾ùÃ¿ÃëµÄÇëÇóÎª20¸ö£¬
-1MÄÜ´æ´¢16000¸ö×´Ì¬£¬reteµÄÖµ±ØĞëÎªÕûÊı£¬
-Èç¹ûÏŞÖÆÁ½ÃëÖÓÒ»¸öÇëÇó£¬¿ÉÒÔÉèÖÃ³É30r/m limit_req_zone $binary_remote_addr zone=allips:10m rate=20r/s;
-ÏŞÖÆÃ¿ipÃ¿Ãë²»³¬¹ı20¸öÇëÇó£¬Â©Í°ÊıburstÎª5 
-brustµÄÒâË¼¾ÍÊÇ£¬Èç¹ûµÚ1Ãë¡¢2,3,4ÃëÇëÇóÎª19¸ö£¬
-µÚ5ÃëµÄÇëÇóÎª25¸öÊÇ±»ÔÊĞíµÄ¡£ 
-µ«ÊÇÈç¹ûÄãµÚ1Ãë¾Í25¸öÇëÇó£¬µÚ2Ãë³¬¹ı20µÄÇëÇó·µ»Ø503´íÎó¡£
-nodelay£¬Èç¹û²»ÉèÖÃ¸ÃÑ¡Ïî£¬ÑÏ¸ñÊ¹ÓÃÆ½¾ùËÙÂÊÏŞÖÆÇëÇóÊı£¬
-µÚ1Ãë25¸öÇëÇóÊ±£¬5¸öÇëÇó·Åµ½µÚ2ÃëÖ´ĞĞ£¬
-ÉèÖÃnodelay£¬25¸öÇëÇó½«ÔÚµÚ1ÃëÖ´ĞĞ¡£
+å®šä¹‰ä¸€ä¸ªåä¸ºallipsçš„limit_req_zoneç”¨æ¥å­˜å‚¨sessionï¼Œå¤§å°æ˜¯10Må†…å­˜ï¼Œ
+ä»¥$binary_remote_addr ä¸ºkey,é™åˆ¶å¹³å‡æ¯ç§’çš„è¯·æ±‚ä¸º20ä¸ªï¼Œ
+1Mèƒ½å­˜å‚¨16000ä¸ªçŠ¶æ€ï¼Œreteçš„å€¼å¿…é¡»ä¸ºæ•´æ•°ï¼Œ
+å¦‚æœé™åˆ¶ä¸¤ç§’é’Ÿä¸€ä¸ªè¯·æ±‚ï¼Œå¯ä»¥è®¾ç½®æˆ30r/m limit_req_zone $binary_remote_addr zone=allips:10m rate=20r/s;
+é™åˆ¶æ¯ipæ¯ç§’ä¸è¶…è¿‡20ä¸ªè¯·æ±‚ï¼Œæ¼æ¡¶æ•°burstä¸º5 
+brustçš„æ„æ€å°±æ˜¯ï¼Œå¦‚æœç¬¬1ç§’ã€2,3,4ç§’è¯·æ±‚ä¸º19ä¸ªï¼Œ
+ç¬¬5ç§’çš„è¯·æ±‚ä¸º25ä¸ªæ˜¯è¢«å…è®¸çš„ã€‚ 
+ä½†æ˜¯å¦‚æœä½ ç¬¬1ç§’å°±25ä¸ªè¯·æ±‚ï¼Œç¬¬2ç§’è¶…è¿‡20çš„è¯·æ±‚è¿”å›503é”™è¯¯ã€‚
+nodelayï¼Œå¦‚æœä¸è®¾ç½®è¯¥é€‰é¡¹ï¼Œä¸¥æ ¼ä½¿ç”¨å¹³å‡é€Ÿç‡é™åˆ¶è¯·æ±‚æ•°ï¼Œ
+ç¬¬1ç§’25ä¸ªè¯·æ±‚æ—¶ï¼Œ5ä¸ªè¯·æ±‚æ”¾åˆ°ç¬¬2ç§’æ‰§è¡Œï¼Œ
+è®¾ç½®nodelayï¼Œ25ä¸ªè¯·æ±‚å°†åœ¨ç¬¬1ç§’æ‰§è¡Œã€‚
 limit_req zone=allips burst=5 nodelay; ... } ... } ... }
-ÀıÈç£ºÈç¹ûÏëÉèÖÃÓÃ»§ÏÂÔØÎÄ¼şµÄÇ°10m´óĞ¡Ê±²»ÏŞËÙ£¬´óÓÚ10mºóÔÙÒÔ128kb/sÏŞËÙ¿ÉÒÔÔö¼ÓÒÔÏÂÅäÄÚÈİ£¬ĞŞ¸Änginx.confÎÄ¼ş 
+ä¾‹å¦‚ï¼šå¦‚æœæƒ³è®¾ç½®ç”¨æˆ·ä¸‹è½½æ–‡ä»¶çš„å‰10må¤§å°æ—¶ä¸é™é€Ÿï¼Œå¤§äº10måå†ä»¥128kb/sé™é€Ÿå¯ä»¥å¢åŠ ä»¥ä¸‹é…å†…å®¹ï¼Œä¿®æ”¹nginx.confæ–‡ä»¶ 
 location /download { 
 limit_rate_after 10m;
 limit_rate 128k; }
 
 
 
-¡ª¡ª»º½âddosÔì³ÉµÄÓ°Ïì
-±à¼­nginx.confÎÄ¼ş
-ÔÚhttpÄ£¿éÖĞÉèÖÃ
+â€”â€”ç¼“è§£ddosé€ æˆçš„å½±å“
+ç¼–è¾‘nginx.confæ–‡ä»¶
+åœ¨httpæ¨¡å—ä¸­è®¾ç½®
 client_body_timeout 10; 
 client_header_timeout 10; 
 keepalive_timeout 5 5; 
 send_timeout 10; 
 
 
-¡ª¡ª·ÀÖ¹Í¨¹ıÆäËûÍ¾¾¶Ê¹ÓÃ±¾ÍøÕ¾×ÊÔ´
+â€”â€”é˜²æ­¢é€šè¿‡å…¶ä»–é€”å¾„ä½¿ç”¨æœ¬ç½‘ç«™èµ„æº
 location ~* \.(jpg|jpeg|png|gif|bmp|swf|rar|zip|doc|xls|pdf|gz|bz2|mp3|mp4|flv)$ {
 valid_referers none blocked 192.168.0.1 *.baidu.com;
  if ($invalid_referer) { 
@@ -112,17 +112,17 @@ rewrite ^/ https://site.com/403.jpg;
 }
 
 
-¡ª¡ª·ÀÖ¹¸ßÈ¨ÏŞÔËĞĞnginx½ø³Ì
-±à¼­nginx.conf
-ÔÚhttpÄ£¿éÏÂĞŞ¸Ä
+â€”â€”é˜²æ­¢é«˜æƒé™è¿è¡Œnginxè¿›ç¨‹
+ç¼–è¾‘nginx.conf
+åœ¨httpæ¨¡å—ä¸‹ä¿®æ”¹
 user	nobody;
 
 
 
 
-¡ª¡ª·ÀÖ¹·Ç·¨ºó×º±»·şÎñÆ÷Ê¶±ğ
-1£© ½«php.iniÎÄ¼şÖĞµÄcgi.fix_pathinfoµÄÖµÉèÎª0
-2£© ½«/etc/php5/fpm/pool.d/www.confÖĞsecurity.limit_ectensionsºóÃæµÄÖµÉèÎª.php
+â€”â€”é˜²æ­¢éæ³•åç¼€è¢«æœåŠ¡å™¨è¯†åˆ«
+1ï¼‰ å°†php.iniæ–‡ä»¶ä¸­çš„cgi.fix_pathinfoçš„å€¼è®¾ä¸º0
+2ï¼‰ å°†/etc/php5/fpm/pool.d/www.confä¸­security.limit_ectensionsåé¢çš„å€¼è®¾ä¸º.php
 security.limit_extensions = .php .php3 .php4 .php5
 
 

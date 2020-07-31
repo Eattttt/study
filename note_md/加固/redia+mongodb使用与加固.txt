@@ -1,77 +1,77 @@
-½â¿ªredisµÄ°ü£¬½«½â°üµÄÄ¿Â¼¸´ÖÆÇÒ¸ÄÃûµ½/usr/local/redis£¬½øÈë/usr/local/redis£¬Ö´ĞĞmakeºÍmake install
+è§£å¼€redisçš„åŒ…ï¼Œå°†è§£åŒ…çš„ç›®å½•å¤åˆ¶ä¸”æ”¹ååˆ°/usr/local/redisï¼Œè¿›å…¥/usr/local/redisï¼Œæ‰§è¡Œmakeå’Œmake install
 
-ÔÚ/usr/local/redis/srcÄ¿Â¼ÏÂÖ´ĞĞ ./redis-server /usr/local/redis/redis.conf & ¿ªÆô·şÎñ£¬./redis-cliµÇÂ¼Êı¾İ¿â
+åœ¨/usr/local/redis/srcç›®å½•ä¸‹æ‰§è¡Œ ./redis-server /usr/local/redis/redis.conf & å¼€å¯æœåŠ¡ï¼Œ./redis-cliç™»å½•æ•°æ®åº“
 
-redis¼Ó¹ÌÅäÖÃ
-1.½ûÖ¹Í¨¹ıÍøÂç·ÃÎÊÊı¾İ¿â£ºĞŞ¸ÄÅäÖÃÎÄ¼şbind 127.0.0.1 ::1
-2.Èç¹ûÓĞÍøÂç·ÃÎÊÊı¾İ¿âµÄĞèÇó£¬ÇëÊ¹ÓÃiptablesÉèÖÃ·ÃÎÊÔ´ÏŞÖÆ£ºiptables -A INPUT -s 192.168.3.1/24 -p tcp --dport 6379 -j ACCEPT
-3.ÉèÖÃ¸ß·çÏÕÃüÁî±ğÃû£ºĞŞ¸ÄÅäÖÃÎÄ¼şrename-command
-4.ÉèÖÃÖ´ĞĞÃüÁîÈÏÖ¤£ºĞŞ¸ÄÅäÖÃÎÄ¼şrequirepass£¬ÖØÆô·şÎñ£¬ÔÙ´ÎÊ¹ÓÃÊı¾İ¿âÃüÁîÊ±ĞèÒªauth xxxxºó²Å¿ÉÒÔÖ´ĞĞ
-5.´´½¨ÆÕÍ¨ÓÃ»§rds£¬Ê¹ÓÃÆÕÍ¨ÓÃ»§¿ªÆôÊı¾İ¿â¡£
-6.ÊÖ¶¯±¸·İÊı¾İ¿â£ºÔÚÊı¾İ¿âÖĞÊ¹ÓÃbgsave±¸·İÊı¾İ¿âÎªdump.rdb
+redisåŠ å›ºé…ç½®
+1.ç¦æ­¢é€šè¿‡ç½‘ç»œè®¿é—®æ•°æ®åº“ï¼šä¿®æ”¹é…ç½®æ–‡ä»¶bind 127.0.0.1 ::1
+2.å¦‚æœæœ‰ç½‘ç»œè®¿é—®æ•°æ®åº“çš„éœ€æ±‚ï¼Œè¯·ä½¿ç”¨iptablesè®¾ç½®è®¿é—®æºé™åˆ¶ï¼šiptables -A INPUT -s 192.168.3.1/24 -p tcp --dport 6379 -j ACCEPT
+3.è®¾ç½®é«˜é£é™©å‘½ä»¤åˆ«åï¼šä¿®æ”¹é…ç½®æ–‡ä»¶rename-command
+4.è®¾ç½®æ‰§è¡Œå‘½ä»¤è®¤è¯ï¼šä¿®æ”¹é…ç½®æ–‡ä»¶requirepassï¼Œé‡å¯æœåŠ¡ï¼Œå†æ¬¡ä½¿ç”¨æ•°æ®åº“å‘½ä»¤æ—¶éœ€è¦auth xxxxåæ‰å¯ä»¥æ‰§è¡Œ
+5.åˆ›å»ºæ™®é€šç”¨æˆ·rdsï¼Œä½¿ç”¨æ™®é€šç”¨æˆ·å¼€å¯æ•°æ®åº“ã€‚
+6.æ‰‹åŠ¨å¤‡ä»½æ•°æ®åº“ï¼šåœ¨æ•°æ®åº“ä¸­ä½¿ç”¨bgsaveå¤‡ä»½æ•°æ®åº“ä¸ºdump.rdb
 
 
 
-mongodb°²×°+¼Ó¹Ì
-1.½â°ü+¸´ÖÆµ½³ÌĞòÄ¿Â¼
+mongodbå®‰è£…+åŠ å›º
+1.è§£åŒ…+å¤åˆ¶åˆ°ç¨‹åºç›®å½•
 tar zxf mongodb-linux-x86_64-rhel70-4.2.3.tgz -C /usr/src/
 cp -r /usr/src/mongodb-linux-x86_64-rhel70-4.2.3/ /usr/local/mongodb
-2.ÊÖ¶¯´´½¨¹Ø¼üÄ¿Â¼£¬ÊÖ¶¯´´½¨ÅäÖÃÎÄ¼ş¡£
+2.æ‰‹åŠ¨åˆ›å»ºå…³é”®ç›®å½•ï¼Œæ‰‹åŠ¨åˆ›å»ºé…ç½®æ–‡ä»¶ã€‚
 cd /usr/local/mongodb/
 mkdir -p data/db log etc
 vim /usr/local/mongodb/etc/mongodb.conf
-±à¼­ÄÚÈİ
+ç¼–è¾‘å†…å®¹
 dbpath=/usr/local/mongodb/data/db
 logpath=/usr/local/mongodb/log/mongodb.log
 fork=true
 journal=false
 port=28888
 bind_ip=xxx
-3.Æô¶¯·şÎñ
+3.å¯åŠ¨æœåŠ¡
 /usr/local/mongodb/bin/mongod --config /usr/local/mongodb/etc/mongodb.conf
-´íÎó1£ºÈÕÖ¾½¨Á¢Ê§°Ü¡£´íÎó100£ºÊı¾İ¿â½¨Á¢Ê§°Ü¡£´íÎó48£ºÓĞÖØ¸´½ø³Ì
+é”™è¯¯1ï¼šæ—¥å¿—å»ºç«‹å¤±è´¥ã€‚é”™è¯¯100ï¼šæ•°æ®åº“å»ºç«‹å¤±è´¥ã€‚é”™è¯¯48ï¼šæœ‰é‡å¤è¿›ç¨‹
 netstat -anpt | grep mongod
-4.¹Ø±Õ·şÎñ
+4.å…³é—­æœåŠ¡
 ./mongo admin --port 28888 --eval "db.shutdownServer()"
-»òÕßµÇÂ¼Êı¾İºóÖ´ĞĞ
+æˆ–è€…ç™»å½•æ•°æ®åæ‰§è¡Œ
 use admin
 db.shutdownServer();
-5.µÇÂ¼Êı¾İ¿â
+5.ç™»å½•æ•°æ®åº“
 ./mongo --port 28888
-6.¿ªÆôÈÏÖ¤¹¦ÄÜ£¬ÊµÏÖÃüÁî²Ù×÷ĞèÒªÓÃ»§ÃûºÍÃÜÂë²Å¿ÉÒÔÖ´ĞĞ¡£
-Î´¿ªÆôÈÏÖ¤¹¦ÄÜÇ°£¬²âÊÔ´´½¨ÓÃ»§
+6.å¼€å¯è®¤è¯åŠŸèƒ½ï¼Œå®ç°å‘½ä»¤æ“ä½œéœ€è¦ç”¨æˆ·åå’Œå¯†ç æ‰å¯ä»¥æ‰§è¡Œã€‚
+æœªå¼€å¯è®¤è¯åŠŸèƒ½å‰ï¼Œæµ‹è¯•åˆ›å»ºç”¨æˆ·
 db.createUser({user:"test1",pwd:"123.com",roles:[{role:"userAdminAnyDatabase",db:"admin"}]});
-³É¹¦
-¿ªÆôÈÏÖ¤¹¦ÄÜ£ºĞŞ¸ÄÅäÖÃÎÄ¼ş¼ÓÈëauth=true
-ÖØÆô·şÎñºóµÇÂ¼Êı¾İ¿â£¬²âÊÔ´´½¨ÓÃ»§Ê§°Ü
-Êı¾İ¿âÓÃ»§½ÇÉ«£ºread£¬readWrite
-Êı¾İ¿â¹ÜÀí½ÇÉ«£ºdbAdmin£¬dbOwner£¬userAdmin
-¼¯Èº¹ÜÀí½ÇÉ«£ºclusterAdmin£¬clusterManager£¬clusterMonitor£¬hostManager
-±¸·İ»Ö¸´½ÇÉ«£ºbackup£¬restore
-ËùÓĞÊı¾İ¿â½ÇÉ«£ºreadAnyDatabase£¬readWriteAnyDatabase£¬userAdminAnyDatabase£¬dbAdminAnyDatabase
-³¬¼¶ÓÃ»§½ÇÉ«£ºroot
+æˆåŠŸ
+å¼€å¯è®¤è¯åŠŸèƒ½ï¼šä¿®æ”¹é…ç½®æ–‡ä»¶åŠ å…¥auth=true
+é‡å¯æœåŠ¡åç™»å½•æ•°æ®åº“ï¼Œæµ‹è¯•åˆ›å»ºç”¨æˆ·å¤±è´¥
+æ•°æ®åº“ç”¨æˆ·è§’è‰²ï¼šreadï¼ŒreadWrite
+æ•°æ®åº“ç®¡ç†è§’è‰²ï¼šdbAdminï¼ŒdbOwnerï¼ŒuserAdmin
+é›†ç¾¤ç®¡ç†è§’è‰²ï¼šclusterAdminï¼ŒclusterManagerï¼ŒclusterMonitorï¼ŒhostManager
+å¤‡ä»½æ¢å¤è§’è‰²ï¼šbackupï¼Œrestore
+æ‰€æœ‰æ•°æ®åº“è§’è‰²ï¼šreadAnyDatabaseï¼ŒreadWriteAnyDatabaseï¼ŒuserAdminAnyDatabaseï¼ŒdbAdminAnyDatabase
+è¶…çº§ç”¨æˆ·è§’è‰²ï¼šroot
 
 use admin
 db.createUser({user:"test2",pwd:"123.com",roles:[{role:"userAdminAnyDatabase",db:"admin"}]});
-ÈÏÖ¤ºóÔÙ´Î´´½¨ÓÃ»§
+è®¤è¯åå†æ¬¡åˆ›å»ºç”¨æˆ·
 use admin
 db.auth ("test1","123.com")
 db.createUser({user:"test2",pwd:"123.com",roles:[{role:"userAdminAnyDatabase",db:"admin"}]});
-7.½¨Á¢¹ÜÀíÔ±ÕÊ»§£¬±¸·İÕË»§£¬»¹Ô­ÕË»§
+7.å»ºç«‹ç®¡ç†å‘˜å¸æˆ·ï¼Œå¤‡ä»½è´¦æˆ·ï¼Œè¿˜åŸè´¦æˆ·
 use admin
 db.auth("test1","123.com")
 db.createUser({user:"root",pwd:"123.com",roles:[{role:"root",db:"admin"}]});
 db.createUser({user:"bkuser",pwd:"123.com",roles:[{role:"backup",db:"admin"}]});
 db.createUser({user:"reuser",pwd:"123.com",roles:[{role:"restore",db:"admin"}]});
-8.±¸·İÊı¾İ¿âºÍ»¹Ô­Êı¾İ¿â
-»Øµ½shell»·¾³
-½«±¾»úµÄadminÊı¾İ¿âÊ¹ÓÃbkuserÕË»§±¸·İµ½/tmpÄ¿Â¼
+8.å¤‡ä»½æ•°æ®åº“å’Œè¿˜åŸæ•°æ®åº“
+å›åˆ°shellç¯å¢ƒ
+å°†æœ¬æœºçš„adminæ•°æ®åº“ä½¿ç”¨bkuserè´¦æˆ·å¤‡ä»½åˆ°/tmpç›®å½•
 ./mongodump --host 127.0.0.1 --port 28888 -d admin -o /tmp/ -u bkuser -p 123.com --authenticationDatabase admin
 
-½«/tmpÄ¿Â¼ÖĞadminµÄ±¸·İĞÅÏ¢Ê¹ÓÃreuserÕË»§»¹Ô­µ½myadmin¿â
+å°†/tmpç›®å½•ä¸­adminçš„å¤‡ä»½ä¿¡æ¯ä½¿ç”¨reuserè´¦æˆ·è¿˜åŸåˆ°myadminåº“
 ./mongorestore --host  127.0.0.1 --port 28888 -u reuser -p 123.com -d myadmin /tmp/admin --authenticationDatabase admin
 
-ÏÖÔÚÓĞ¸öÊı¾İ¿â½Ğchaitin£¬Èç¹ûÏ£Íû±¸·İÕâ¸öÊı¾İ¿â
+ç°åœ¨æœ‰ä¸ªæ•°æ®åº“å«chaitinï¼Œå¦‚æœå¸Œæœ›å¤‡ä»½è¿™ä¸ªæ•°æ®åº“
 db.createUser({user:"ctback",pwd:"123.com",roles:[{role:"backup",db:"chaitin"}]});
 db.createUser({user:"ctroot",pwd:"123.com",roles:[{role:"dbOwner",db:"chaitin"}]});
-Õâ¸öctrootÕË»§ÔÚchaitinÊı¾İ¿âÖĞÓµÓĞ×î¸ßµÄÈ¨ÏŞ
+è¿™ä¸ªctrootè´¦æˆ·åœ¨chaitinæ•°æ®åº“ä¸­æ‹¥æœ‰æœ€é«˜çš„æƒé™

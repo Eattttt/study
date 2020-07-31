@@ -1,35 +1,35 @@
-ĞŞ¸Ähttpd.conf
-vi  /etc/httpd/conf/httpd.conf»òÕß±àÒëÂ·¾¶ÏÂ/conf/httpd.conf
-¼ì²é³ÌĞòÆô¶¯ÕËºÅºÍÓÃ»§×é
-user  apache»òÕßnobody
-group  apache»òÕßnobody
-Ò»°ãÇé¿öÏÂÄ¬ÈÏÓÃ»§·ûºÏ°²È«ÒªÇó
+ä¿®æ”¹httpd.conf
+vi  /etc/httpd/conf/httpd.confæˆ–è€…ç¼–è¯‘è·¯å¾„ä¸‹/conf/httpd.conf
+æ£€æŸ¥ç¨‹åºå¯åŠ¨è´¦å·å’Œç”¨æˆ·ç»„
+user  apacheæˆ–è€…nobody
+group  apacheæˆ–è€…nobody
+ä¸€èˆ¬æƒ…å†µä¸‹é»˜è®¤ç”¨æˆ·ç¬¦åˆå®‰å…¨è¦æ±‚
 
 
 
 
-ÔÚhttpd.confÎÄ¼şÖĞ²éÕÒÖ÷Ä¿Â¼Î»ÖÃ
-grep  ¡°ServerRoot¡± /etc/httpd/conf/httpd.conf
-ĞŞ¸ÄÈ¨ÏŞ
-chmodĞŞ¸ÄÈ¨ÏŞÖ÷Ä¿Â¼È¨ÏŞ
+åœ¨httpd.confæ–‡ä»¶ä¸­æŸ¥æ‰¾ä¸»ç›®å½•ä½ç½®
+grep  â€œServerRootâ€ /etc/httpd/conf/httpd.conf
+ä¿®æ”¹æƒé™
+chmodä¿®æ”¹æƒé™ä¸»ç›®å½•æƒé™
 chmod -R 700 /etc/httpd/
 chmod 644 /var/log/httpd/*.log
 
 
 
 
-ĞŞ¸Ähttpd.confÎÄ¼ş
+ä¿®æ”¹httpd.confæ–‡ä»¶
 vi  /etc/httpd/conf/httpd.conf
-¸ü¸Ä´íÎóÈÕÖ¾
-LogLevel	notice£¨¸ü¶àµÄ¼ÇÂ¼ĞÅÏ¢£¬µ«»áÕ¼ÓÃ´óÁ¿¿Õ¼ä£©
-ErrorLog   /logs/error_log£¨¿É¸ù¾İ´ÅÅÌ¹æ»®¸ü¸Ä£©
-¸ü¸Ä·ÃÎÊÈÕÖ¾
-LogFormat ¡°%h %l %u %t \¡±%r\¡° %>s %b \¡±%{Accept}i\¡°%{Referer}i\¡± \¡°%{User-Agent}i\¡±¡° combined
-CustomLog   /logs/access_log combined (¿É¸ù¾İ´ÅÅÌ¹æ»®¸ü¸Ä)
+æ›´æ”¹é”™è¯¯æ—¥å¿—
+LogLevel	noticeï¼ˆæ›´å¤šçš„è®°å½•ä¿¡æ¯ï¼Œä½†ä¼šå ç”¨å¤§é‡ç©ºé—´ï¼‰
+ErrorLog   /logs/error_logï¼ˆå¯æ ¹æ®ç£ç›˜è§„åˆ’æ›´æ”¹ï¼‰
+æ›´æ”¹è®¿é—®æ—¥å¿—
+LogFormat â€œ%h %l %u %t \â€%r\â€œ %>s %b \â€%{Accept}i\â€œ%{Referer}i\â€ \â€œ%{User-Agent}i\â€â€œ combined
+CustomLog   /logs/access_log combined (å¯æ ¹æ®ç£ç›˜è§„åˆ’æ›´æ”¹)
 
 
 
-´ò¿ªhttpd.conf¼ì²é¹Ø¼üÓï·¨
+æ‰“å¼€httpd.confæ£€æŸ¥å…³é”®è¯­æ³•
 <Directory />
     AllowOverride none
     Require all denied
@@ -42,60 +42,60 @@ CustomLog   /logs/access_log combined (¿É¸ù¾İ´ÅÅÌ¹æ»®¸ü¸Ä)
 
 
 
-ĞŞ¸Ähttpd.confÎÄ¼ş
+ä¿®æ”¹httpd.confæ–‡ä»¶
 vi  /etc/httpd/conf/httpd.conf
-È¥µôÕ¾µãÅäÖÃĞÅÏ¢ÖĞµÄIndexesÑ¡Ïî
+å»æ‰ç«™ç‚¹é…ç½®ä¿¡æ¯ä¸­çš„Indexesé€‰é¡¹
 <Directory "/var/www/html">
     Options Indexes FollowSymLinks
     AllowOverride None
     Require all granted
 </Directory>
-Indexes:ÎŞ·¨ÔÚµ±Ç°Ä¿Â¼ÏÂÕÒµ½Ê×Ò³ÎÄ¼ş£¬¾ÍÏÔÊ¾Ä¿Â¼ÄÚÈİ
+Indexes:æ— æ³•åœ¨å½“å‰ç›®å½•ä¸‹æ‰¾åˆ°é¦–é¡µæ–‡ä»¶ï¼Œå°±æ˜¾ç¤ºç›®å½•å†…å®¹
 
 
 
-ĞŞ¸Ähttpd.confÎÄ¼ş
+ä¿®æ”¹httpd.confæ–‡ä»¶
 vi  /etc/httpd/conf/httpd.conf
-±à¼­´íÎóÒ³ÃæÅäÖÃ
+ç¼–è¾‘é”™è¯¯é¡µé¢é…ç½®
 ErrorDocument 400  /error/400.html
 ErrorDocument 401  /error/401.html
 ErrorDocument 403  /error/403.html
 ErrorDocument 404  /error/404.html
 ErrorDocument 405  /error/405.html
 ErrorDocument 500  /error/500.html
-´íÎóÒ³ÃæÔÚÕ¾µã¸ùÄ¿Â¼ÏÂ´´½¨£¬Ò²¿ÉÒÔÔÚ×ÓÄ¿Â¼ÖĞ
-´íÎóĞÅÏ¢»¹¿ÉÒÔÊ¹ÓÃ¡°Ö±½ÓÊä³öÌáÊ¾¡±
+é”™è¯¯é¡µé¢åœ¨ç«™ç‚¹æ ¹ç›®å½•ä¸‹åˆ›å»ºï¼Œä¹Ÿå¯ä»¥åœ¨å­ç›®å½•ä¸­
+é”™è¯¯ä¿¡æ¯è¿˜å¯ä»¥ä½¿ç”¨â€œç›´æ¥è¾“å‡ºæç¤ºâ€
 
 
-±à¼­httpd.conf
+ç¼–è¾‘httpd.conf
 vi  /etc/httpd/conf/httpd.conf
-ĞŞ¸ÄÄÚÈİ
+ä¿®æ”¹å†…å®¹
 Timeout 10 
 KeepAlive On
 KeepAliveTimeout 15
-´Ë´¦µÄÁ¬½Ó¼ä¸ôºÍsession±£³ÖÊ±¼äµ¥Î»¶¼ÊÇÃë£¬Ò»¶¨Òª¸ù¾İÊµ¼ÊÇé¿ö£¬·ÖÎöºóÔÙÉè¶¨
+æ­¤å¤„çš„è¿æ¥é—´éš”å’Œsessionä¿æŒæ—¶é—´å•ä½éƒ½æ˜¯ç§’ï¼Œä¸€å®šè¦æ ¹æ®å®é™…æƒ…å†µï¼Œåˆ†æåå†è®¾å®š
 
 
 
 
-±à¼­httpd.conf
+ç¼–è¾‘httpd.conf
 vi  /etc/httpd/conf/httpd.conf
- ĞŞ¸ÄĞÅÏ¢ÈçÏÂ
+ ä¿®æ”¹ä¿¡æ¯å¦‚ä¸‹
 ServerSignature Off 
 ServerTokens Prod
 
 
 
-±à¼­httpd.conf
+ç¼–è¾‘httpd.conf
 vi  /etc/httpd/conf/httpd.conf
- ĞŞ¸ÄĞÅÏ¢ÈçÏÂ
+ ä¿®æ”¹ä¿¡æ¯å¦‚ä¸‹
 TraceEnable Off
 
 
-±à¼­httpd.conf
+ç¼–è¾‘httpd.conf
 vi  /etc/httpd/conf/httpd.conf
- ×¢ÊÍĞÅÏ¢ÈçÏÂ
-ScriptAlias /cgi-bin/ "/var/www/cgi-bin/¡±
+ æ³¨é‡Šä¿¡æ¯å¦‚ä¸‹
+ScriptAlias /cgi-bin/ "/var/www/cgi-bin/â€
 <Directory "/var/www/cgi-bin">
     AllowOverride None
     Options None
@@ -107,17 +107,17 @@ LoadModule cgi_module modules/mod_cgi.so
 
 
 
-±à¼­httpd.conf
+ç¼–è¾‘httpd.conf
 vi  /etc/httpd/conf/httpd.conf
-Ìí¼Ó¼àÌıIP
+æ·»åŠ ç›‘å¬IP
 Listen  xx.xx.xx.xx:80
-Èç¹ûÒ³ÃæÎªË½ÓĞÒ³Ãæ£¬»¹¿ÉÒÔ¸ü¸ÄÄ¬ÈÏ¶Ë¿ÚÖµ
+å¦‚æœé¡µé¢ä¸ºç§æœ‰é¡µé¢ï¼Œè¿˜å¯ä»¥æ›´æ”¹é»˜è®¤ç«¯å£å€¼
 
 
 
-±à¼­httpd.conf
+ç¼–è¾‘httpd.conf
 vi  /etc/httpd/conf/httpd.conf
- ¼ÓÈëĞÅÏ¢ÈçÏÂ
+ åŠ å…¥ä¿¡æ¯å¦‚ä¸‹
 <Location />
 <LimitExcept GET POST CONNECT OPTIONS>
  AllowOverride None
@@ -127,9 +127,9 @@ Require all granted
 
 
 
-±à¼­httpd.conf
+ç¼–è¾‘httpd.conf
 vi  /etc/httpd/conf/httpd.conf
- Ìí¼ÓÅäÖÃĞÅÏ¢
+ æ·»åŠ é…ç½®ä¿¡æ¯
 <FilesMatch \.php$> 
 SetHandler application/x-httpd-php
 </FilesMatch>
@@ -140,17 +140,17 @@ SetHandler application/x-httpd-php-source
 
 
 
-ĞŞ¸Äphp.iniÎÄ¼ş
+ä¿®æ”¹php.iniæ–‡ä»¶
 vi  /etc/php.ini
-¼ÓÈë»òĞŞ¸ÄĞÅÏ¢ÈçÏÂ
+åŠ å…¥æˆ–ä¿®æ”¹ä¿¡æ¯å¦‚ä¸‹
 magic_quotes_gpc=On
 
 
 
-·ÀÖ¹Òç³öÂ©¶´
-±à¼­httpd.confÎÄ¼ş
+é˜²æ­¢æº¢å‡ºæ¼æ´
+ç¼–è¾‘httpd.confæ–‡ä»¶
 vi /etc/httpd/conf/httpd.conf
-Ìí¼ÓĞÅÏ¢
+æ·»åŠ ä¿¡æ¯
 LimitRequestBody 102400
 
 

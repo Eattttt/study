@@ -1,7 +1,7 @@
 ### 安装
 1. 解压 -C
 2. cd 
-3. ./configure --prefix=/usr/loacl/httpd--enable-so --enable-rewrite --enable-charset-lite --enable-cgi
+3. ./configure --prefix=/usr/loacl/httpd --enable-so --enable-rewrite --enable-charset-lite --enable-cgi
 > ./configure --prefix=/usr/loacl/httpd  指定程序安装路径
  --enable-so  支持模块化功能
  --enable-rewrite  支持重写功能

@@ -1,20 +1,20 @@
-¡ª¡ªÈç¹û²»ÐèÒª¿ØÖÆÌ¨¹ÜÀí£¬Çë¸ü¸Ä¿ØÖÆÌ¨ÓÃ»§ÎÄ¼þ£¬×¢ÏúÕËºÅÐÅÏ¢£¬Èç¹ûÐèÒª¿ØÖÆÌ¨£¬Çë¸ü¸ÄÕË»§ÐÅÏ¢¡£
-ÐÞ¸Ätomcat/conf/tomcat-user.xmlÎÄ¼þ
-×¢ÊÍ»òÐÞ¸ÄÈçÏÂÐÅÏ¢
-ÔÚ<tomcat-users>  </tomcat-users>ÖÐ¼äµÄÊÇÓÃ»§ÕËºÅÐÅÏ¢£¬manager-guiµÇÂ¼ÈÏÖ¤ÐèÒªÔÚÕâÖÐ¼ä¼ÓÈë
+â€”â€”å¦‚æžœä¸éœ€è¦æŽ§åˆ¶å°ç®¡ç†ï¼Œè¯·æ›´æ”¹æŽ§åˆ¶å°ç”¨æˆ·æ–‡ä»¶ï¼Œæ³¨é”€è´¦å·ä¿¡æ¯ï¼Œå¦‚æžœéœ€è¦æŽ§åˆ¶å°ï¼Œè¯·æ›´æ”¹è´¦æˆ·ä¿¡æ¯ã€‚
+ä¿®æ”¹tomcat/conf/tomcat-user.xmlæ–‡ä»¶
+æ³¨é‡Šæˆ–ä¿®æ”¹å¦‚ä¸‹ä¿¡æ¯
+åœ¨<tomcat-users>  </tomcat-users>ä¸­é—´çš„æ˜¯ç”¨æˆ·è´¦å·ä¿¡æ¯ï¼Œmanager-guiç™»å½•è®¤è¯éœ€è¦åœ¨è¿™ä¸­é—´åŠ å…¥
 <role rolename="manager-gui">
 <user username="admin" password="www.123.com" roles="manager-gui"/>
 
-¡ª¡ª¿ªÆôÈÕÖ¾¹¦ÄÜ£¬Ôö¼ÓÉó¼Æ»·½Ú
-ÐÞ¸Äconf/server.xmlÎÄ¼þ
-È¥µôÈçÏÂÐÐµÄ×¢ÊÍ·û
-<Valve className=¡°org.apache.catalina.valves.AccessLogValve¡± directory=¡°logs¡± prefix="localhost_access_log." suffix=".txt" pattern="common" resolveHosts="false"/>
+â€”â€”å¼€å¯æ—¥å¿—åŠŸèƒ½ï¼Œå¢žåŠ å®¡è®¡çŽ¯èŠ‚
+ä¿®æ”¹conf/server.xmlæ–‡ä»¶
+åŽ»æŽ‰å¦‚ä¸‹è¡Œçš„æ³¨é‡Šç¬¦
+<Valve className=â€œorg.apache.catalina.valves.AccessLogValveâ€ directory=â€œlogsâ€ prefix="localhost_access_log." suffix=".txt" pattern="common" resolveHosts="false"/>
 
 
 
-¡ª¡ª±ÜÃâÐ¹Â¶Ãô¸ÐÐÅÏ¢
-ÔÚÍøÕ¾¸ùÄ¿Â¼ÏÂÐÂ½¨noFile.htmlÎÄ¼þ
-²é¿´²¢ÆôÓÃtomcat/conf/web.xmlÎÄ¼þÖÐÏÂÁÐ´úÂë£º
+â€”â€”é¿å…æ³„éœ²æ•æ„Ÿä¿¡æ¯
+åœ¨ç½‘ç«™æ ¹ç›®å½•ä¸‹æ–°å»ºnoFile.htmlæ–‡ä»¶
+æŸ¥çœ‹å¹¶å¯ç”¨tomcat/conf/web.xmlæ–‡ä»¶ä¸­ä¸‹åˆ—ä»£ç ï¼š
 <error-page>
 <error-code>404</error-code>
 <location>/noFile.html</location>
@@ -23,18 +23,18 @@
 
 
 
-¡ª¡ª·ÀÖ¹ä¯ÀÀÆ÷²é¿´Ä¿Â¼ÄÚÈÝ
-±à¼­tomcat/conf/web.xmlÅäÖÃÎÄ¼þ
+â€”â€”é˜²æ­¢æµè§ˆå™¨æŸ¥çœ‹ç›®å½•å†…å®¹
+ç¼–è¾‘tomcat/conf/web.xmlé…ç½®æ–‡ä»¶
 <init-param>
         <param-name>listings</param-name>
         <param-value>true</param-value>
     </init-param>
-°Ñtrue¸Ä³Éfalse
+æŠŠtrueæ”¹æˆfalse
 
 
 
-¡ª¡ª½ûÓÃ²»°²È«µÄhttpÇëÇó·½Ê½
-±à¼­tomcat/conf/web.xmlÅäÖÃ£¬Ìí¼Ó»òÐÞ¸ÄÈçÏÂÐÅÏ¢
+â€”â€”ç¦ç”¨ä¸å®‰å…¨çš„httpè¯·æ±‚æ–¹å¼
+ç¼–è¾‘tomcat/conf/web.xmlé…ç½®ï¼Œæ·»åŠ æˆ–ä¿®æ”¹å¦‚ä¸‹ä¿¡æ¯
 <security-constraint>  
    <web-resource-collection>   
   <url-pattern>/*</url-pattern> 
@@ -53,38 +53,38 @@
   </login-config>  
 
 
-¡ª¡ª·ÃÎÊÀ´Ô´°×Ãûµ¥
-±à¼­tomcat/conf/server.xml£¬Ìí¼ÓÈçÏÂ
-<Valve className=¡°org.apache.catalina.values.RemoteAddrValue¡± allow=¡±IPµØÖ·" deny="" />
+â€”â€”è®¿é—®æ¥æºç™½åå•
+ç¼–è¾‘tomcat/conf/server.xmlï¼Œæ·»åŠ å¦‚ä¸‹
+<Valve className=â€œorg.apache.catalina.values.RemoteAddrValueâ€ allow=â€IPåœ°å€" deny="" />
 
 
 
-¡ª¡ª»º½âdos¹¥»÷´øÀ´µÄ¹ý¶È×ÊÔ´Õ¼ÓÃ¡ª¡ª¸ù¾ÝÇé¿öÐÞ¸ÄconnectionTimeout£¬acceptCount£¬maxThreads
-±à¼­tomcat/conf/server.xmlÎÄ¼þ
-<Connector port="8080" protocol="HTTP/1.1" connectionTimeout=¡±300" redirectPort=¡°8443¡± acceptCount=¡°500¡± maxThreads=¡°400¡± /> 
-maxThreads ÊÇ´¦ÀíÇëÇóµÄÏß³ÌÊý£¬acceptCount ÊÇµÈ´ý¶ÓÁÐ£¬acceptCount²¢²»ÊÇÒ»¶¨Òª´óÓÚµÈÓÚmaxThreads¡£maxThreads ÂúÁË£¬½øÈëacceptCount £¬acceptCount Ò²ÂúÁË£¬Ôò ¾Ü¾øÇëÇó
-5.5°æ±¾ÒÔÏÂÎª
-<Connector className=¡°org.apache.coyote.tomcat4.CoyoteConnector¡± port=¡°8080¡± minProcessors=¡°5¡± maxProcessors=¡°75¡± enableLookups=¡°true¡± redirectPort=¡°8443¡± acceptCount=¡°100¡± debug=¡°0¡± connectionTimeout=¡°300 ¡± useURIValidationHack=¡°false¡± protocolHandlerClassName="org.apache.jk.server.JkCoyoteHandler"/>
+â€”â€”ç¼“è§£dosæ”»å‡»å¸¦æ¥çš„è¿‡åº¦èµ„æºå ç”¨â€”â€”æ ¹æ®æƒ…å†µä¿®æ”¹connectionTimeoutï¼ŒacceptCountï¼ŒmaxThreads
+ç¼–è¾‘tomcat/conf/server.xmlæ–‡ä»¶
+<Connector port="8080" protocol="HTTP/1.1" connectionTimeout=â€300" redirectPort=â€œ8443â€ acceptCount=â€œ500â€ maxThreads=â€œ400â€ /> 
+maxThreads æ˜¯å¤„ç†è¯·æ±‚çš„çº¿ç¨‹æ•°ï¼ŒacceptCount æ˜¯ç­‰å¾…é˜Ÿåˆ—ï¼ŒacceptCountå¹¶ä¸æ˜¯ä¸€å®šè¦å¤§äºŽç­‰äºŽmaxThreadsã€‚maxThreads æ»¡äº†ï¼Œè¿›å…¥acceptCount ï¼ŒacceptCount ä¹Ÿæ»¡äº†ï¼Œåˆ™ æ‹’ç»è¯·æ±‚
+5.5ç‰ˆæœ¬ä»¥ä¸‹ä¸º
+<Connector className=â€œorg.apache.coyote.tomcat4.CoyoteConnectorâ€ port=â€œ8080â€ minProcessors=â€œ5â€ maxProcessors=â€œ75â€ enableLookups=â€œtrueâ€ redirectPort=â€œ8443â€ acceptCount=â€œ100â€ debug=â€œ0â€ connectionTimeout=â€œ300 â€ useURIValidationHack=â€œfalseâ€ protocolHandlerClassName="org.apache.jk.server.JkCoyoteHandler"/>
 
 
-¡ª¡ª½µµÍ±»É¨ÃèµÄ¼¸ÂÊ¡ª¡ªÐÞ¸Äport="8080"ºÍredirectPort=¡°8443¡±
-±à¼­tomcat/conf/server.xmlÎÄ¼þ
-<Connector port="8080" protocol="HTTP/1.1" connectionTimeout=¡±300" redirectPort=¡°8443¡± acceptCount=¡°500¡± maxThreads=¡°400¡± /> 
-5.5°æ±¾ÒÔÏÂÎª
-<Connector className=¡°org.apache.coyote.tomcat4.CoyoteConnector¡± port=¡°8080¡± minProcessors=¡°5¡± maxProcessors=¡°75¡± enableLookups=¡°true¡± redirectPort=¡°8443¡± acceptCount=¡°100¡± debug=¡°0¡± connectionTimeout=¡°300 ¡± useURIValidationHack=¡°false¡± protocolHandlerClassName="org.apache.jk.server.JkCoyoteHandler"/>
-
-
-
-¡ª¡ª·ÀÖ¹´«ÊäÐÅÏ¢±»½Ø»ñ½â¶Á
-Ê¹ÓÃjdkµÄkeytoolsÉú³ÉÃÜÔ¿¶Ô
-Ö´ÐÐÃüÁîkeytool -genkey -alias tomcat -keyalg  RSA -keystore /mydir/keystore
-ÐÞ¸ÄtomcatµÄweb.xmlÎÄ¼þÈ¡Ïû×¢ÊÍÐÅÏ¢ºóÌí¼ÓÃØÔ¿Â·¾¶ºÍ·ÃÎÊÃÜÂë
-<Connector port=¡°8443¡± protocol=¡°org.apache.coyote.http11.Http11Protocol¡± maxThreads=¡°150¡± SSLEnabled=¡°true¡± scheme=¡°https¡± secure=¡°true¡± clientAuth="false" keystoreFile="/mydir/keystore"  keystorePass="123.com"  sslProtocol="TLS" />
+â€”â€”é™ä½Žè¢«æ‰«æçš„å‡ çŽ‡â€”â€”ä¿®æ”¹port="8080"å’ŒredirectPort=â€œ8443â€
+ç¼–è¾‘tomcat/conf/server.xmlæ–‡ä»¶
+<Connector port="8080" protocol="HTTP/1.1" connectionTimeout=â€300" redirectPort=â€œ8443â€ acceptCount=â€œ500â€ maxThreads=â€œ400â€ /> 
+5.5ç‰ˆæœ¬ä»¥ä¸‹ä¸º
+<Connector className=â€œorg.apache.coyote.tomcat4.CoyoteConnectorâ€ port=â€œ8080â€ minProcessors=â€œ5â€ maxProcessors=â€œ75â€ enableLookups=â€œtrueâ€ redirectPort=â€œ8443â€ acceptCount=â€œ100â€ debug=â€œ0â€ connectionTimeout=â€œ300 â€ useURIValidationHack=â€œfalseâ€ protocolHandlerClassName="org.apache.jk.server.JkCoyoteHandler"/>
 
 
 
-¡ª¡ªÐÞ²¹×îÐÂµÄÂ©¶´
-·ÃÎÊhttp://httpd.tomcat.orgÏÂÔØ×îÐÂÎÈ¶¨°æ²¹¶¡
+â€”â€”é˜²æ­¢ä¼ è¾“ä¿¡æ¯è¢«æˆªèŽ·è§£è¯»
+ä½¿ç”¨jdkçš„keytoolsç”Ÿæˆå¯†é’¥å¯¹
+æ‰§è¡Œå‘½ä»¤keytool -genkey -alias tomcat -keyalg  RSA -keystore /mydir/keystore
+ä¿®æ”¹tomcatçš„web.xmlæ–‡ä»¶å–æ¶ˆæ³¨é‡Šä¿¡æ¯åŽæ·»åŠ ç§˜é’¥è·¯å¾„å’Œè®¿é—®å¯†ç 
+<Connector port=â€œ8443â€ protocol=â€œorg.apache.coyote.http11.Http11Protocolâ€ maxThreads=â€œ150â€ SSLEnabled=â€œtrueâ€ scheme=â€œhttpsâ€ secure=â€œtrueâ€ clientAuth="false" keystoreFile="/mydir/keystore"  keystorePass="123.com"  sslProtocol="TLS" />
+
+
+
+â€”â€”ä¿®è¡¥æœ€æ–°çš„æ¼æ´ž
+è®¿é—®http://httpd.tomcat.orgä¸‹è½½æœ€æ–°ç¨³å®šç‰ˆè¡¥ä¸
 
 
 

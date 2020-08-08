@@ -9,7 +9,7 @@ group  apache或者nobody
 
 
 在httpd.conf文件中查找主目录位置
-grep  “ServerRoot” /etc/httpd/conf/httpd.conf
+grep  "ServerRoot" /etc/httpd/conf/httpd.conf
 修改权限
 chmod修改权限主目录权限
 chmod -R 700 /etc/httpd/
@@ -24,7 +24,7 @@ vi  /etc/httpd/conf/httpd.conf
 LogLevel	notice（更多的记录信息，但会占用大量空间）
 ErrorLog   /logs/error_log（可根据磁盘规划更改）
 更改访问日志
-LogFormat “%h %l %u %t \”%r\“ %>s %b \”%{Accept}i\“%{Referer}i\” \“%{User-Agent}i\”“ combined
+LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Accept}i\"%{Referer}i\" \"%{User-Agent}i\"" combined
 CustomLog   /logs/access_log combined (可根据磁盘规划更改)
 
 
@@ -64,7 +64,7 @@ ErrorDocument 404  /error/404.html
 ErrorDocument 405  /error/405.html
 ErrorDocument 500  /error/500.html
 错误页面在站点根目录下创建，也可以在子目录中
-错误信息还可以使用“直接输出提示”
+错误信息还可以使用"直接输出提示"
 
 
 编辑httpd.conf
@@ -95,7 +95,7 @@ TraceEnable Off
 编辑httpd.conf
 vi  /etc/httpd/conf/httpd.conf
  注释信息如下
-ScriptAlias /cgi-bin/ "/var/www/cgi-bin/”
+ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
 <Directory "/var/www/cgi-bin">
     AllowOverride None
     Options None

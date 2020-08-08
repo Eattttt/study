@@ -9,24 +9,26 @@ server_tokens  off；
 ——某些目录为运维页面，不要公开访问
 编辑nginx.conf
 在server标签内添加如下内容
+```
 location ~ /attachments/.*\.(php|php5)?$ { 
 deny all; 
 }
 location ~ /(attachments|upload)/.*\.(php|php5)?$ { 
 deny all; 
 }
-
+```
 
 
 ——敏感目录使用白名单访问
 修改nginx.conf文件
 在server中添加
+```
 location /upload {
 allow 192.168.1.0/24; 
 allow 10.1.1.1/32; 
 deny all; 
 }
-
+```
 
 
 
@@ -39,11 +41,12 @@ autoindex off;
 ——制作重定向，防止默认页面存在安全隐患
 编辑nginx.conf
 在server模块下加入
+```
 error_page   404  /404.html;
         location = /404.html {
         root   /usr/local/nginx/html;
         }
-
+```
 
 
 ——修改日记格式，便于审计
@@ -102,6 +105,7 @@ send_timeout 10;
 
 
 ——防止通过其他途径使用本网站资源
+```
 location ~* \.(jpg|jpeg|png|gif|bmp|swf|rar|zip|doc|xls|pdf|gz|bz2|mp3|mp4|flv)$ {
 valid_referers none blocked 192.168.0.1 *.baidu.com;
  if ($invalid_referer) { 
@@ -110,51 +114,14 @@ rewrite ^/ https://site.com/403.jpg;
  }
  root /usr/share/nginx/img; 
 }
-
+```
 
 ——防止高权限运行nginx进程
 编辑nginx.conf
 在http模块下修改
 user	nobody;
 
-
-
-
 ——防止非法后缀被服务器识别
 1） 将php.ini文件中的cgi.fix_pathinfo的值设为0
 2） 将/etc/php5/fpm/pool.d/www.conf中security.limit_ectensions后面的值设为.php
 security.limit_extensions = .php .php3 .php4 .php5
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

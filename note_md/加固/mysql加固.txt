@@ -15,7 +15,7 @@ flush privileges;
 ——删除默认数据库和用户
 删除测试库
 show databases;
-drop?database?test; 
+drop database test; 
 删除非root用户
 use mysql; 
  delete from user where not (user='root') ; 

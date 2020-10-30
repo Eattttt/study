@@ -1,0 +1,106 @@
+hsrp热备份路由协议
+SW1(config)#interface f0/0——进入接口设置
+SW1(config-if)#standby 1 ip 192.168.1.254——该接口在组1中，组1的虚拟IP地址为192.168.1.254
+SW1(config-if)#standby 1 priority 105——该接口在组1中优先级105
+SW1(config-if)#standby 1 preempt——该接口在组1中拥有占先权（一般不在活跃路由上配置）
+SW1(config-if)#standby 1 track fastEthernet 0/1 ——跟踪F0/1状态，当F0/1不可用时，我在组1中优先级下降10点
+
+
+
+
+access-list 101 deny tcp 192.168.1.0 0.0.0.255 host 192.168.2.2 eq 21
+access-list 101 deny icmp 192.168.1.0 0.0.0.255 host 192.168.2.2 echo
+access-list 101 permit ip 192.168.1.0 0.0.0.255 192.168.2.0 0.0.0.255
+隐藏了一条access-list 101 deny any any
+access-group 101 in
+
+
+主机192.168.1.12访问192.168.2.2的http可否成功｛失败｝
+主机192.168.1.98访问192.168.2.2的ftp可否成功｛失败｝
+主机192.168.1.100ping192.168.2.2可否成功｛失败｝
+主机10.1.1.1访问192.168.2.2的http可否成功｛失败｝
+
+
+主机192.168.1.44访问192.168.2.46的ftp服务（成功）
+
+
+
+
+
+
+
+静态转换：一对一
+ip nat inside source static local-ip global-ip 
+ip nat inside source static 192.168.3.20 202.106.0.2
+
+
+动态转换：多对多（很少使用，在创建多区域防火墙时候，为了隐藏区域拓扑｛IP地址信息｝会使用）
+定义一个ACL
+access-list 1 permit 192.168.1.0 0.0.0.255
+定义地址池
+ip nat pool ct 192.168.4.100 192.168.4.200 netmask netmask 255.255.255.0
+
+将ACL和地址池连接起来，实现多对多（被ACL允许的流量源IP地址转换为地址池中的IP）
+ip nat inside source list 1  pool ct
+
+端口多路复用：多对一，许多的源IP地址转换成同一个源IP地址（靠端口号区分）
+定义一个ACL，来获取即将被转换流量
+access-list 1 permit 192.168.1.0 0.0.0.255
+定义地址池（地址池里可以只有一个IP地址，有多个也行，但是只有第一个起始地址生效）
+ip nat pool ct 202.106.0.1 202.106.0.1 netmask netmask 255.255.255.0
+将ACL和地址池连接起来，实现多对一
+ip nat inside source list 1  pool ct  overload
+配置方法2，在无法确定转换后IP地址的情况下，可以使用端口编号，端口的IP是多少，就转成多少。
+ip nat inside source list 1  int f0/1  overload
+
+用ACL筛选需要被转换的流量（被ACL允许的将被转换）
+并且将ACL和公网出口进行绑定，设置端口多路复用overload
+
+ip nat inside source list 1  int f0/1  overload
+Router(config-if)#int f0/0——定义内部接口
+Router(config-if)#ip nat inside 
+Router(config-if)#int f0/1——定义外部接口
+Router(config-if)#ip nat outside 
+
+不在ISP上设置任何路由条目，但是内网可以访问到外网服务器
+
+ip nat inside source static 协议 内部地址 端口号 外部地址 端口号
+例如发布web服务器
+ip nat inside source static tcp 192.168.20.20 80 1.1.1.1 80
+
+
+
+
+
+
+
+去北方的
+用acl筛出去北方的流量
+access-list 100 permit tcp 192.168.10.0 0.0.0.255 host 4.1.1.2 eq www
+创建一个北方IP的地址池
+ip nat pool beifang 4.1.1.1 4.1.1.1 netmask 255.0.0.0
+北方转换
+ip nat inside source list 100 pool beifang overload
+
+
+去ISP的
+用acl抛去北方的流量
+用acl刨去南方的流量
+剩下的都用ISP的接口转换出去
+access-list 102 deny tcp 192.168.10.0 0.0.0.255 host 4.1.1.2 eq www
+access-list 102 deny tcp 192.168.10.0 0.0.0.255 host 5.1.1.2 eq www
+access-list 102 permit ip 192.168.10.0 0.0.0.255 any
+ip nat inside source list 102 interface FastEthernet0/1 overload
+
+
+去南方的
+用acl筛出去南方的流量
+access-list 101 permit tcp 192.168.10.0 0.0.0.255 host 5.1.1.2 eq www
+创建一个南方IP的地址池
+ip nat pool nanfang 5.1.1.1 5.1.1.1 netmask 255.0.0.0
+南方转换
+ip nat inside source list 101 pool nanfang overload
+
+
+
+

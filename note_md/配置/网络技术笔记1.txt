@@ -1,0 +1,80 @@
+思科体系
+用户模式→特权模式：en
+特权模式→全局配置：conf t
+全局模式→接口模式：int f0/1   百兆0模块1接口
+关闭接口：shutdown
+开启接口：no shutdown
+
+命令格式
+Router>en——进入特权
+Router#conf t——进入全局
+Router(config)#int f0/0——进入接口
+Router(config-if)#ip add ip地址 子网掩码——配置接口IP地址
+Router(config-if)#no shutdown ——开启接口
+Router(config-if)#exit——回到特权
+Router(config)#ip route 目标网段 子网掩码  下一条地址或者本地出口
+Router(config)#ip route 192.168.20.0 255.255.255.0 f0/2
+或者
+Router(config)#ip route 192.168.20.0 255.255.255.0 192.168.100.2
+Router(config)#exit——回到特权模式
+Router#show ip route——查看路由表
+
+
+
+创建vlan
+Switch>en
+Switch#conf t
+Switch(config)#vlan 10
+Switch(config-vlan)#name chaitin
+Switch(config-vlan)#vlan 20
+Switch(config-vlan)#name alibaba
+端口加vlan
+Switch(config-if)#int f0/2
+Switch(config-if)#sw a v 20（switchport access vlan 20）
+交换机之间trunk
+Switch(config)#int f0/3
+设置中继协议为802.1q
+Switch(config-if)#switchport trunk encapsulation dot1q 
+设置工作模式为trunk
+Switch(config-if)#sw m t（switchport mode trunk ）
+查看当前的工作状态配置，在特权模式使用
+Switch#show running-config （用空格或者回车翻篇，按q中断预览）
+
+
+vtp统一创建删除修改vlan信息
+创建vtp域
+Switch(config)#vtp domain ct
+设定vtp功能角色
+Switch(config)#vtp mode server/client/transparent
+注意：vtp必须在中继链路上才可以同步vlan信息
+
+三层交换
+开启三层交换机的路由转发功能
+Switch(config)#ip routing
+为虚接口（VLAN）设置IP地址，这个IP地址会成为所属vlan的网关地址。
+Switch(config)#int vlan 10
+Switch(config-if)#ip address 10.1.1.1 255.0.0.0
+Switch(config-if)#no shutdown
+如有其他vlan同样设置IP地址
+
+
+三层交换机连接路由器的接口需要提升为三层接口，可以配置IP地址
+Switch(config-if-range)#int f0/3
+Switch(config-if)#no switchport 
+
+三层交换设置DHCP中继
+希望为哪个vlan中继DHCP请求包就在相应vlan设置
+Switch(config)#int vlan 10
+Switch(config-if)#ip helper-address 50.1.1.10（DHCP服务器的IP地址）
+
+
+
+生成树协议
+vlan10的主根
+Switch(config)#spanning-tree vlan 10 root primary
+vlan20的次根
+Switch(config)#spanning-tree vlan 20 root secondary
+
+
+
+

